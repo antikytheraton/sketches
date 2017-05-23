@@ -1,0 +1,39 @@
+Pulse Sensor for Arduino # 14 - arduSerie
+
+These sorts of sensors are not as easy to use as you might think. You have to be very still and let the sensor settle down before it produces worthwhile results.
+
+I made some notes in the lab. Here they are:
+1-when the sensor is at the tip of the finger there is a single position for adjustment. Be patient;
+2-do not place the decal on the front of the sensor. Hinders more than it helps;
+3-when the signal must be displayed by serial arduino to have a strong signal, use the sensor in the earlobe;
+4-There are 3 points of the Arduino code that need attention:
+  a- I used baud rate of Serial.begin(57600). It works well. Try other speeds. if you want to have the faster baud rate, make sure the baud rate in your Arduino sketch matches the baud rate in the Processing code. I tried this and it also works. You just need to make sure the Arduino and Processing code are using the same baud rate.
+I think it depends on the operating system. I'm using the Windows 10 Home Single Language V 1511 64-bit; Intel Core i7, 2 and 2.6 GHz, 16 GB Ram; Arduino 1.6.7 and Processing 3.1;
+  b- manufacturers offer the code part:
+
+// Regards Serial Output - Set This Up to your needs
+static boolean serialVisual = false; // Set to 'false' by Default.
+
+that should be replaced by:
+
+// Regards Serial Output - Set This Up to your needs
+static boolean serialVisual = true; // Re-set to 'true' to Visual Pulse ASCII:)
+
+it serves to use the serial or display by the graph by Processing's GUI.
+Do not forget that. I lost a lot of time with this oversight ...
+5- when the sensor is at the tip of your finger you can use the sense of touch to feel the flow of blood. Stability will occur only when you feel the flow. is a wonderful feeling .... try !!
+6- You can also use the sense of sight and see the faint light change at the very tip of the finger. Do not tighten the finger on the sensor. Use a very light touch !!
+7- I have not studied in depth the site code. It is quite complex. I need some time. I have to understand it more because I have the idea of reducing the intensity of the signal from the ear lobe. I've tried using resistors of 330 ohm and 1k A0 in the doorway of the Arduino and capacitor .1 uF. It did not work ... must be a way ... and raises it to the case of serial;
+8 - reading the fingertip is very sensitive to movement. How to use it in a Gymnasium, then? certainly we have to use the lobe of the ear ...
+9- Finally, get ready to not despair and think that everything will not work first. The hardware needs more study to robustness. The work of developers is extraordinary. the community can help make it with industrial quality.
+
+If you want to comment, use my youtube channel. Many thanks to the manufacturers and to you who read this text and watched the video. See you later!!!
+
+troubleshooting:
+
+1-The processing does not display the graphic. It jumps straight to zero:
+
+I fixed the issue. I changed the baud rate from 115200 to 57600 and it started working.
+source: https://forum.processing.org/two/discussion/8246/processing-code-to-display-amped-visualizer
+
+Help put more items in this list .... I will be Thankful ... It will be for the community ...You know!!!
